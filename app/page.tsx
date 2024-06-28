@@ -14,6 +14,7 @@ import { FaHeart } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { UpdateTask } from '@/actions/updateTask';
 import { DeleteTask } from '@/actions/deleteTask';
+import Link from 'next/link';
 
 
 const Page = () => {
@@ -74,15 +75,32 @@ const Page = () => {
           })
           
 }
+
       
 
 
       </div>
+      <div className='flex items-center justify-center flex-col   '>
+      <Card  className='flex items-center justify-between w-[850px] mt-8 flex-row  border border-black bg-slate-100' >
+  <CardHeader>
+    <CardDescription className='flex flex-row gap-x-96'>
+      <div className='text-lg font-mono text-black font-light '>This task is not completed ...</div>
+    </CardDescription>
+  </CardHeader>
+  
+  <CardFooter>
+  <Button className='bg-orange-200 text-black text-center rounded-3xl gap-x-4 border border-black mt-6 w-[200px]'> 😒 Mark as completed</Button>
+    <Button variant={'ghost'} className='mt-6' onClick={()=> handleSubmit(data.id)}><FaRegTrashAlt className='text-2xl text-red-600' /></Button>
+  </CardFooter>
+</Card>
+</div>
+      
+
       <div className='flex items-center justify-center'>
       <div className='flex items-center justify-between w-[850px] mt-8'>
         <div>
-          <Button variant={'outline'} className='border border-black text-lg w-[150px] h-[50px] flex items-center justify-center' > 👈 Previous </Button></div>
-          <Button variant={'outline'} className='border border-black text-lg w-[150px] h-[50px] flex items-center justify-center' > Next 👉 </Button></div>
+          <Button variant={'outline'} className='border border-black text-lg w-[150px] h-[50px] flex items-center justify-center'> <Link href={'/previouspage'}>👈 Previous </Link></Button></div>
+          <Button variant={'outline'} className='border border-black text-lg w-[150px] h-[50px] flex items-center justify-center' > <Link href={'/nextpage'}>Next 👉 </Link></Button></div>
       </div>
       </div>
 
